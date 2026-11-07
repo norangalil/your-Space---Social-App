@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import  { useContext, useState } from "react";
 import {
   MoreHorizontal,
   Globe,
@@ -12,11 +12,10 @@ import { userContext } from "../../pages/context/user.context";
 import axios from "axios";
 import { toast } from "sonner";
 
-export default function PostCard({ postDetails, onEdit }) {
+export default function PostCard({ postDetails, onEdit  }) {
   const {
     likesCount,
     commentsCount,
-    likes,
     id,
     sharesCount,
     image,
@@ -25,6 +24,8 @@ export default function PostCard({ postDetails, onEdit }) {
     createdAt,
     privacy,
   } = postDetails;
+
+  
 
   const { token, userInfo } = useContext(userContext);
   const [showMenu, setShowMenu] = useState(false);
@@ -52,6 +53,7 @@ export default function PostCard({ postDetails, onEdit }) {
 
       if (data.success) {
         toast.success(data.message);
+        
       }
 
       console.log(data);

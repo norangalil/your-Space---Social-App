@@ -132,7 +132,7 @@ export default function Sidebar({ isOpen, onClose }) {
 
                 <div className="relative">
                   <img
-                    src={userInfo?.photo}
+                    src={userInfo?.photo || "./assets/images/hero.png"}
                     alt="Avatar"
                     className="h-10 w-10 rounded-full object-cover"
                   />
@@ -142,7 +142,7 @@ export default function Sidebar({ isOpen, onClose }) {
 
                 <div>
                   <p className="text-sm font-semibold text-black">
-                    {userInfo?.name}
+                    {userInfo?.name }
                   </p>
 
                   <p className="text-xs text-gray-500">

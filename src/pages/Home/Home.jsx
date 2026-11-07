@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import  { useContext, useEffect, useState } from 'react'
 import { userContext } from '../context/user.context';
 import axios from 'axios';
 import PostCard from '../../components/PostCard/PostCard';
@@ -8,14 +8,14 @@ export default function Home() {
 
 const [posts , setPost] = useState(null)
 const [editingPost, setEditingPost] = useState(null)
-
 const {token} = useContext(userContext)
-console.log(token)
+
+
 
 async function getHomeFeed() {
   try {
     const options = {
-      url: "https://route-posts.routemisr.com/posts/feed?only=following&limit=10",
+      url: "https://route-posts.routemisr.com/posts",
       method: "GET",
       headers: {
         authorization: `Bearer ${token}`,
@@ -30,6 +30,8 @@ setPost(data.data.posts);
     console.log("STATUS:", error.response?.status);
     console.log("ERROR:", error.response?.data);
   }
+
+ 
 }
 
 useEffect(() => {
@@ -52,8 +54,9 @@ useEffect(() => {
   key={post._id}
   postDetails={post}
   onEdit={(post) => setEditingPost(post)}
+  
 />
-)} </div> : <h2>Loading </h2>}
+)} </div> : <h2> Loading </h2>}
     </>
   )
 }
